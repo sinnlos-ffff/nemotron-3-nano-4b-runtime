@@ -1,0 +1,19 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "nemotron-handmade"
+version = "0.1.0"
+description = "A guided PyTorch implementation of Nemotron 3 Nano 4B"
+requires-python = ">=3.11,<3.14"
+dependencies = ["torch>=2.6,<3", "safetensors>=0.5,<1", "huggingface-hub>=0.30,<2", "transformers>=4.53,<5"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/nemotron"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
