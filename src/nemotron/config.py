@@ -37,9 +37,9 @@ class MambaConfig:
     @property
     def conv_dim(self) -> int:
         """Exercise 01: combined width of x, B, and C."""
-        raise NotImplementedError("Exercise 01: derive conv_dim")
+        return self.inner_size + (2 * self.n_groups * self.ssm_state_size)
 
     @property
     def projection_size(self) -> int:
         """Exercise 01: combined width of gate, x, B, C, and dt."""
-        raise NotImplementedError("Exercise 01: derive projection_size")
+        return self.inner_size + self.conv_dim + self.mamba_num_heads

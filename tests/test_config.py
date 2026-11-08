@@ -14,7 +14,6 @@ def test_config_reads_checkpoint_fields_without_remote_code(tmp_path):
     assert MambaConfig.from_json(path) == MambaConfig.tiny()
 
 
-@pytest.mark.xfail(raises=NotImplementedError, strict=True, reason="Exercise 01")
 def test_tiny_dimensions():
     config = MambaConfig.tiny()
     assert config.inner_size == 32
@@ -22,7 +21,6 @@ def test_tiny_dimensions():
     assert config.projection_size == 80
 
 
-@pytest.mark.xfail(raises=NotImplementedError, strict=True, reason="Exercise 01")
 def test_checkpoint_dimensions():
     config = MambaConfig(hidden_size=3136, mamba_num_heads=96, mamba_head_dim=80,
                          n_groups=8, ssm_state_size=128)
